@@ -14,20 +14,20 @@ project already defines over a raw tool invocation.
 | Signal file(s) | Ecosystem | Prefer (if defined) | Otherwise run |
 |---|---|---|---|
 | `package.json` | Node/JS/TS | `npm run test` / `npm run lint` (check `scripts` first; also try `pnpm`/`yarn` if that lockfile is present) | `npx vitest run`, `npx jest`, or `npx eslint .` depending on what's configured |
-| `pyproject.toml`, `setup.py`, `requirements*.txt` | Python | `tox`, or a `Makefile`/`justfile` target | `pytest`, `python -m pytest`, `ruff check .`, `mypy .` — whichever configs exist (`pytest.ini`, `ruff.toml`, `mypy.ini`) |
-| `Cargo.toml` | Rust | — | `cargo test`, `cargo clippy` |
-| `go.mod` | Go | — | `go test ./...`, `go vet ./...` |
-| `pom.xml` | Java (Maven) | — | `mvn test` |
+| `pyproject.toml`, `setup.py`, `requirements*.txt` | Python | `tox`, or a `Makefile`/`justfile` target | `pytest`, `python -m pytest`, `ruff check .`, `mypy .`, whichever configs exist (`pytest.ini`, `ruff.toml`, `mypy.ini`) |
+| `Cargo.toml` | Rust | N/A | `cargo test`, `cargo clippy` |
+| `go.mod` | Go | N/A | `go test ./...`, `go vet ./...` |
+| `pom.xml` | Java (Maven) | N/A | `mvn test` |
 | `build.gradle`, `build.gradle.kts` | Java/Kotlin (Gradle) | `./gradlew` if present | `./gradlew test` or `gradle test` |
 | `Gemfile` | Ruby | `bin/rails test` if a Rails app | `bundle exec rspec`, `bundle exec rake test` |
-| `*.csproj`, `*.sln` | .NET | — | `dotnet test` |
+| `*.csproj`, `*.sln` | .NET | N/A | `dotnet test` |
 | `composer.json` | PHP | Check `composer.json` `scripts.test` | `composer test`, `vendor/bin/phpunit` |
-| `mix.exs` | Elixir | — | `mix test`, `mix credo` |
+| `mix.exs` | Elixir | N/A | `mix test`, `mix credo` |
 | `CMakeLists.txt`, `Makefile` (C/C++) | C/C++ | `make test` if the target exists | project's documented build+test steps |
 
 If a CI config exists (`.github/workflows/*.yml`, `.gitlab-ci.yml`,
 `.circleci/config.yml`), it's the most reliable source of truth for the
-real test/lint invocation — read it before guessing.
+real test/lint invocation. Read it before guessing.
 
 ## Fallback when no test/lint setup is found
 
@@ -41,7 +41,7 @@ Instead:
    input, checked syntax with the language's own `--check`/compile step
    if one exists).
 3. If the change is non-trivial and genuinely warrants a test suite, say
-   so as a observation — don't silently add a whole test framework as an
+   so as an observation. Don't silently add a whole test framework as an
    unrequested dependency (see Stage 2's new-dependency rule in
    `SKILL.md`).
 

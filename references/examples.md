@@ -8,7 +8,7 @@
 
 **Task: "Fix the typo on line 42, it says 'recieve'."**
 
-Skip Stage 1 entirely — unambiguous, single-line, no design decision.
+Skip Stage 1 entirely: unambiguous, single-line, no design decision.
 Just fix it, run the verification command, done.
 
 **Task: "Add rate limiting to the API."**
@@ -21,12 +21,13 @@ batched together:
 >    concept for this in the codebase.)
 > 2. Is there a preference between an in-process limiter (simple, resets
 >    on restart, fine for a single instance) vs. a Redis-backed one
->    (survives restarts, works across multiple instances — you're running
->    behind a load balancer per `docker-compose.yml`, so this may matter)?
-> 3. What should happen when the limit is hit — HTTP 429 with a
+>    (survives restarts, works across multiple instances, and you're
+>    running behind a load balancer per `docker-compose.yml`, so this
+>    may matter)?
+> 3. What should happen when the limit is hit: HTTP 429 with a
 >    `Retry-After` header, or something else your clients already expect?
 
-Not asked: "What language/framework should I use?" — that's answerable by
+Not asked: "What language/framework should I use?" That's answerable by
 reading the repo, so it's checked, not asked.
 
 ## Compliant vs. non-compliant diff

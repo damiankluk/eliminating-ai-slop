@@ -1,13 +1,13 @@
 # Changelog
 
-## 1.0.0 — 2026-08-17
+## 1.0.0 (2026-08-17)
 
 Initial public release. Rewritten in English from an internal Polish draft
 ("Anti-Slop & Deterministic Code Engineering v2.0.0") after a red-team pass
 that surfaced 13 issues. Key changes from the draft:
 
 - Added an explicit skip path (Stage 0) for small/unambiguous tasks and for
-  non-interactive/headless/subagent runs — the draft's mandatory interview
+  non-interactive/headless/subagent runs. The draft's mandatory interview
   had no exit and would block automation.
 - Replaced subjective triggers ("100% confidence", "shadow of doubt") with
   concrete, checkable conditions for when to ask questions.
