@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.1 (2026-08-17)
+
+`references/examples.md` hadn't caught up with 1.1.0: the clarification
+example still showed the old unlabeled question, and the After-Action
+loop had no worked example at all, only a description in SKILL.md.
+Updated the rate-limiting example to use the minimal/extensible labels,
+and added a full worked transcript of the After-Action loop (two rounds,
+including a fix that surfaces a second failure) so both techniques are
+demonstrated, not just declared.
+
 ## 1.1.0 (2026-08-17)
 
 Restored two techniques from the original draft that the 1.0.0 rewrite
