@@ -41,9 +41,12 @@ Ask only when at least one is true, and say *why* you're asking:
   with no definition of "better").
 
 Ask at most 3-4 questions, batched in one message, not asked serially.
-When two implementation paths are both reasonable, name both briefly and
-ask which one, rather than picking silently. Don't interview over things
-answerable by reading the repo: check first, ask second.
+For a real design fork (the second trigger above), don't leave it
+open-ended: name two concrete paths, typically a minimal one (the
+smallest change that satisfies the ask) and an extensible one (built for
+the need you can already see coming), each with a one-line tradeoff, and
+ask which one. Don't interview over things answerable by reading the
+repo: check first, ask second.
 
 ## Stage 2: Surgical implementation
 
@@ -72,10 +75,13 @@ answerable by reading the repo: check first, ask second.
    [references/verification-commands.md](references/verification-commands.md)
    for the detection table across ecosystems and the fallback when no
    test/lint setup exists at all).
-2. **Run it.** If it fails, loop: read the actual error/stack trace, form
-   one concrete hypothesis for the cause, make the smallest fix that
-   addresses it, rerun. Repeat until it passes or you're genuinely stuck.
-   Don't repeat the same fix twice.
+2. **Run it.** If it fails, work an After-Action loop until it passes.
+   Don't repeat the same fix twice:
+   - **What happened?** Paste the actual error or stack trace, not a
+     paraphrase.
+   - **Why?** State one concrete hypothesis for the cause.
+   - **Corrective action.** Make the smallest fix that addresses that
+     hypothesis, then rerun the same command.
 3. **Self-review the diff before handing it back.** Read your own
    `git diff` and remove: leftover debug/trace output in whatever form the
    language uses (`console.log`, `print`, `fmt.Println`, `dd()`,
